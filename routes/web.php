@@ -8,6 +8,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index' ]);
 
 
