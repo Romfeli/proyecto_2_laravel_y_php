@@ -23,6 +23,7 @@ class ExpenseReportController extends Controller
      */
     public function create()
     {
+        
         return view('expense_report.create');
     }
 
@@ -31,8 +32,14 @@ class ExpenseReportController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $validData = $request->validate([
+            'title' => 'required|min:3'
+        ]);
+
         $report = new ExpenseReport();
-        $report->title = $request->get('title');
+        $report->title = $validData['title'];
         $report->save();
 
         return redirect('/expense_reports');
@@ -51,8 +58,11 @@ class ExpenseReportController extends Controller
     /**
      * Show the form for editing the specified resource.   EDITAR
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id )
     {
+
+       
+
         $report = ExpenseReport::findOrFail($id);
         return view('expense_report.edit', [
             'report' => $report
@@ -64,9 +74,15 @@ class ExpenseReportController extends Controller
      * Update the specified resource in storage.   ACTUALIZA
      */
     public function update(Request $request, string $id)
+
     {
+
+        $validData = $request->validate([
+            'title' => 'required|min:3'
+        ]);
+    
         $report = ExpenseReport::findOrFail($id);
-        $report->title = $request->get('title');
+        $report->title = $validData['title'];
         $report->save();
         return redirect('/expense_reports');
     }

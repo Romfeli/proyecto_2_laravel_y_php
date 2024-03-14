@@ -22,6 +22,7 @@
                     <td>
                         {{$expenseReport->title}}
                     </td>
+
                     <td><a class="btn btn-primary" href="/expense_reports/{{$expenseReport->id}}/edit">Editar</a></td>
                 <td><a class="btn btn-danger" href="/expense_reports/{{$expenseReport->id}}/confirmDelete">Delete</a>
 

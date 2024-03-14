@@ -16,6 +16,18 @@
  
     <div class="row">
         <div class="col">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+
+                        <li>{{$error}}</li>
+    
+                        @endforeach
+                    </ul>        
+                </div>
+           @endif    
            
         <form action="/expense_reports/{{ $report->id }}" method="POST">
             @csrf
