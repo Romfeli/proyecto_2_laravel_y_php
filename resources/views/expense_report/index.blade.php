@@ -19,11 +19,11 @@
             <table class="table">
                 @foreach ($expenseReports as $expenseReport)
                 <tr>
-                    <td>
-                        {{$expenseReport->title}}
-                    </td>
+                    
+                    <td><a class="" href="/expense_reports/{{$expenseReport->id}}">{{$expenseReport->title}}</a></td>
 
                     <td><a class="btn btn-primary" href="/expense_reports/{{$expenseReport->id}}/edit">Editar</a></td>
+
                 <td><a class="btn btn-danger" href="/expense_reports/{{$expenseReport->id}}/confirmDelete">Delete</a>
 
                 </tr>

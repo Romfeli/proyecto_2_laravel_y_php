@@ -50,9 +50,11 @@ class ExpenseReportController extends Controller
     /**
      * Display the specified resource. muestra un solo elemento slug un solo elemento
      */
-    public function show(string $id)
+    public function show(ExpenseReport $expenseReport)
     {
-        //
+        return view('expense_report.show', [
+            'report' => $expenseReport
+        ]);
     }
 
     /**
@@ -99,6 +101,9 @@ class ExpenseReportController extends Controller
 
     public function confirmDelete(string $id)
     {
+
+        
+
         $report = ExpenseReport::findOrFail($id);
 
         return view('expense_report.confirmDelete',[
