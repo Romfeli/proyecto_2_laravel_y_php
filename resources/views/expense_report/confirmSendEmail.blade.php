@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h1>Edit Report {{ $report->id}}</h1>
+            <h1>Send Report</h1>
 
         </div>
     </div>
@@ -12,12 +12,10 @@
             <a class="btn btn-secondary" href="/expense_reports">Back</a>
 
         </div>
-    </div>   
- 
+    </div>  
     <div class="row">
         <div class="col">
-
-            @if ($errors->any())
+           @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach($errors->all() as $error)
@@ -28,16 +26,14 @@
                     </ul>        
                 </div>
            @endif    
-           
-        <form action="/expense_reports/{{ $report->id }}" method="POST">
-            @csrf
-            @method('PUT')
-        <div class="form-group">
-            <label for="Title">Title</label>
-            <input type="text" name="title"  id="title" class="form-control" placeholder="type a title">
+           <form action="/expense_reports/{{$report->id}}/sendEmail" method="POST">
+    @csrf
+    <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control" placeholder="Type an email" value="{{ old('email') }}">
         </div>
-            <button type="submit" class="btn btn-primary"> Submit</button>
-        </form>
+        <button type="submit" class="btn btn-primary">Send Email</button>
+    </form>
         </div>
     </div>  
            

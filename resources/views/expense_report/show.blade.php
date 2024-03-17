@@ -1,14 +1,26 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('content')
-    <div class="row">
+
+<div class="container">
+
+<div class="row">
         <div class="col">
             <h1>Report {{$report->title}}</h1>
 
         </div>
         <div class="row">
             <div class="col">
-                <a class="btn btn-secondary" href="/expense_reports">Back</a>
+                <a class="btn btn-primary" href="/expense_reports">Back</a>
+    
+            </div>
+        </div> 
+    </div>
+
+
+    <div class="row">
+            <div class="col">
+                <a class="btn btn-secondary" href="/expense_reports/{{$report->id}}/confirmSendEmail">Send email</a>
     
             </div>
         </div> 
@@ -38,5 +50,9 @@
                 <a class="btn btn-primary" href="/expense_reports/{{$report->id}}/expenses/create">New expense</a>
             </div>
            </div>
+
+
+</div>
+    
 
 @endsection
